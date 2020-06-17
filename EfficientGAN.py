@@ -142,8 +142,8 @@ def train_model(G, D, E, dataloader, num_epochs):
             # 正解ラベルと偽ラベルを作成
             # epochの最後のイテレーションはミニバッチの数が少なくなる
             mini_batch_size = imges.size()[0]
-            label_real = torch.full((mini_batch_size,), 1).to(device)
-            label_fake = torch.full((mini_batch_size,), 0).to(device)
+            label_real = torch.full((mini_batch_size,), 1, dtype=torch.float32).to(device)
+            label_fake = torch.full((mini_batch_size,), 0, dtype=torch.float32).to(device)
 
             # GPUが使えるならGPUにデータを送る
             imges = imges.to(device)
